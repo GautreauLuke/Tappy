@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://coox8hpw670na"]
+
+[node name="Plane" type="CharacterBody2D"]
