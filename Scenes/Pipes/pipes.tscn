@@ -1,8 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp7jqydo1iuyf"]
+[gd_scene load_steps=7 format=3 uid="uid://bp7jqydo1iuyf"]
 
 [ext_resource type="Script" uid="uid://lr56cpt1w8ni" path="res://Scenes/Pipes/Pipes.cs" id="1_8mivx"]
 [ext_resource type="PackedScene" uid="uid://c6mfmn508f6ad" path="res://Scenes/Pipe/pipe.tscn" id="1_tdr4r"]
 [ext_resource type="PackedScene" uid="uid://cdnwv75vbhxq0" path="res://Scenes/Laser/laser.tscn" id="2_8mivx"]
+
+[sub_resource type="Animation" id="Animation_8mivx"]
+resource_name = "laser_flicker"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0.890196, 0.678431)]
+}
+
+[sub_resource type="Animation" id="Animation_y36k3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3jvs"]
+_data = {
+&"RESET": SubResource("Animation_y36k3"),
+&"laser_flicker": SubResource("Animation_8mivx")
+}
 
 [node name="Pipes" type="Node2D" node_paths=PackedStringArray("_visibleOnScreenNotifier")]
 script = ExtResource("1_8mivx")
@@ -16,9 +54,18 @@ position = Vector2(0, -100)
 rotation = 3.14159
 
 [node name="Laser" parent="." instance=ExtResource("2_8mivx")]
+self_modulate = Color(1, 1, 1, 1)
 z_index = -1
 
 [node name="visibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(105, -1)
 
 [node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="animationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Laser")
+libraries = {
+&"": SubResource("AnimationLibrary_k3jvs")
+}
+
+[editable path="Laser"]

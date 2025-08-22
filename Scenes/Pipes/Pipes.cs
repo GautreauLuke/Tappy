@@ -22,7 +22,7 @@ public partial class Pipes : Node2D
 	}
 	
 	private void OnScreenExited()
-    {
-        QueueFree();
-    }
+	{
+		QueueFree();
+	}
 }
