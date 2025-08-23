@@ -9,15 +9,21 @@ public partial class Plane : CharacterBody2D
 	const float POWER = -300.0f;
 
 	[Export] private AnimationPlayer _animationPlayer;
+	[Export] private AnimatedSprite2D _planeSprite;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GD.Print($"Plane READY at: {GetPath()}");
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
+		if (Input.IsActionJustPressed("ui_accept")) GD.Print("ACCEPT");
+
+
 		Vector2 velocity = Velocity;
 		velocity.Y += GRAVITY * (float)delta;
 
@@ -26,10 +32,19 @@ public partial class Plane : CharacterBody2D
 			velocity.Y = POWER;
 			_animationPlayer.Stop();
 			_animationPlayer.Play("power");
+			GD.Print("Power.");
+
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+
+		if (IsOnFloor())
+		{
+			SetPhysicsProcess(false);
+			_planeSprite.Stop();
+			GD.Print("Ded.");
+		}
 
 	}
 }
