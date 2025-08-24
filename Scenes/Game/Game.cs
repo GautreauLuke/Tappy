@@ -9,17 +9,25 @@ public partial class Game : Node2D
 	[Export] private Node2D _pipesHolder;
 	[Export] private Timer _spawnTimer;
 	[Export] private PackedScene _pipesScene;
+	[Export] private Plane _plane;
+	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_spawnTimer.Timeout += SpawnPipes;
+		_plane.OnPlaneDied += GameOver;
 
 		SpawnPipes();
 		GD.Print($"{GetSpawnY()}");
 	}
 
-	private void SpawnPipes()
+    private void GameOver()
+    {
+        GD.Print("GameOver");
+    }
+
+    private void SpawnPipes()
 	{
 		Pipes np = _pipesScene.Instantiate<Pipes>();
 		_pipesHolder.AddChild(np);
