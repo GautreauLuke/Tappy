@@ -43,12 +43,18 @@ public partial class Plane : CharacterBody2D
 
 		if (IsOnFloor())
 		{
+			Die();
+		}
+
+
+	}
+
+	public void Die()
+		{
 			SetPhysicsProcess(false);
 			_planeSprite.Stop();
 			GD.Print("Ded.");
 			EmitSignal(SignalName.OnPlaneDied);
 
 		}
-
-	}
 }

@@ -10,7 +10,6 @@ public partial class Game : Node2D
 	[Export] private Timer _spawnTimer;
 	[Export] private PackedScene _pipesScene;
 	[Export] private Plane _plane;
-	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -22,20 +21,30 @@ public partial class Game : Node2D
 		GD.Print($"{GetSpawnY()}");
 	}
 
-    private void GameOver()
-    {
-        GD.Print("GameOver");
-    }
+	public void StopPipes()
+	{
+		_spawnTimer.Stop();
+		foreach (Pipes pipe in _pipesHolder.GetChildren())
+		{
+			pipe.SetProcess(false);
+		}
+	}
 
-    private void SpawnPipes()
+	public void GameOver()
+	{
+		GD.Print("GameOver");
+		StopPipes();
+	}
+
+	private void SpawnPipes()
 	{
 		Pipes np = _pipesScene.Instantiate<Pipes>();
 		_pipesHolder.AddChild(np);
-		np.Position = new Vector2(_spawnLower.Position.X, GetSpawnY());
-    }
+		np.GlobalPosition = new Vector2(_spawnLower.Position.X, GetSpawnY());
+	}
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
 	{
 	}
 

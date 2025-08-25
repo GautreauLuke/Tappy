@@ -23,6 +23,7 @@ position = Vector2(340, 341)
 texture = ExtResource("1_80nbo")
 
 [node name="Plane" parent="." instance=ExtResource("2_e2o6t")]
+z_index = 1
 position = Vector2(75, 375)
 
 [node name="Barrier" parent="." instance=ExtResource("3_feb5d")]
