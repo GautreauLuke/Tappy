@@ -53,6 +53,8 @@ public partial class Plane : CharacterBody2D
 		{
 			SetPhysicsProcess(false);
 			_planeSprite.Stop();
+			_animationPlayer.Stop();
+
 			GD.Print("Ded.");
 			EmitSignal(SignalName.OnPlaneDied);
 
