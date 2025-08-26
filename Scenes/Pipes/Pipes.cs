@@ -10,7 +10,9 @@ public partial class Pipes : Node2D
 	[Export] private Area2D _topPipe;
 	[Export] private Area2D _bottomPipe;
 	[Export] private Area2D _laser;
-	[Export] private AnimationPlayer _laserFlicker;
+	[Export] private AnimationPlayer _laserAnimation;
+
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,15 +20,21 @@ public partial class Pipes : Node2D
 		_visibleOnScreenNotifier.ScreenExited += OnScreenExited;
 		_topPipe.BodyEntered += OnPipeBodyEntered;
 		_bottomPipe.BodyEntered += OnPipeBodyEntered;
+		_laser.BodyEntered += OnLaserBodyEntered;
 	}
 
-	private void OnPipeBodyEntered(Node2D body)
+    private void OnLaserBodyEntered(Node2D body)
+    {
+        GD.Print("Scored");
+    }
+
+    public void OnPipeBodyEntered(Node2D body)
 	{
 		GD.Print(body.Name);
 		if (body is Plane)
 		{
 			(body as Plane).Die();
-			_laserFlicker.Pause();
+			_laserAnimation.Pause();
 		}
 	}
 

@@ -91,7 +91,7 @@ animation = &"fly"
 autoplay = "fly"
 frame_progress = 0.790662
 
-[node name="collisionShape2d" type="CollisionShape2D" parent="."]
+[node name="collisionShape2d" type="CollisionShape2D" parent="." groups=["plane"]]
 shape = SubResource("CircleShape2D_6ebbn")
 
 [node name="animationPlayer" type="AnimationPlayer" parent="."]

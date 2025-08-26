@@ -42,13 +42,13 @@ _data = {
 &"laser_flicker": SubResource("Animation_8mivx")
 }
 
-[node name="Pipes" type="Node2D" node_paths=PackedStringArray("_visibleOnScreenNotifier", "_topPipe", "_bottomPipe", "_laser", "_laserFlicker")]
+[node name="Pipes" type="Node2D" node_paths=PackedStringArray("_visibleOnScreenNotifier", "_topPipe", "_bottomPipe", "_laser", "_laserAnimation")]
 script = ExtResource("1_8mivx")
 _visibleOnScreenNotifier = NodePath("visibleOnScreenNotifier2d")
 _topPipe = NodePath("TopPipe")
 _bottomPipe = NodePath("BottomPipe")
 _laser = NodePath("Laser")
-_laserFlicker = NodePath("Laser/animationPlayer")
+_laserAnimation = NodePath("animationPlayer2")
 
 [node name="BottomPipe" parent="." instance=ExtResource("1_tdr4r")]
 position = Vector2(0, 100)

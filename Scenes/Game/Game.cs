@@ -34,6 +34,7 @@ public partial class Game : Node2D
 	{
 		GD.Print("GameOver");
 		StopPipes();
+		
 	}
 
 	private void SpawnPipes()
