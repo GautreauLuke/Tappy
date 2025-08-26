@@ -10,6 +10,7 @@ public partial class Pipes : Node2D
 	[Export] private Area2D _topPipe;
 	[Export] private Area2D _bottomPipe;
 	[Export] private Area2D _laser;
+	[Export] private AnimationPlayer _laserFlicker;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -25,6 +26,7 @@ public partial class Pipes : Node2D
 		if (body is Plane)
 		{
 			(body as Plane).Die();
+			_laserFlicker.Pause();
 		}
 	}
 

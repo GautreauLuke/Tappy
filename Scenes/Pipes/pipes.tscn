@@ -42,12 +42,13 @@ _data = {
 &"laser_flicker": SubResource("Animation_8mivx")
 }
 
-[node name="Pipes" type="Node2D" node_paths=PackedStringArray("_visibleOnScreenNotifier", "_topPipe", "_bottomPipe", "_laser")]
+[node name="Pipes" type="Node2D" node_paths=PackedStringArray("_visibleOnScreenNotifier", "_topPipe", "_bottomPipe", "_laser", "_laserFlicker")]
 script = ExtResource("1_8mivx")
 _visibleOnScreenNotifier = NodePath("visibleOnScreenNotifier2d")
 _topPipe = NodePath("TopPipe")
 _bottomPipe = NodePath("BottomPipe")
 _laser = NodePath("Laser")
+_laserFlicker = NodePath("Laser/animationPlayer")
 
 [node name="BottomPipe" parent="." instance=ExtResource("1_tdr4r")]
 position = Vector2(0, 100)
@@ -57,18 +58,15 @@ position = Vector2(0, -100)
 rotation = 3.14159
 
 [node name="Laser" parent="." instance=ExtResource("2_8mivx")]
-z_index = -1
-
-[node name="sprite2d" parent="Laser" index="0"]
 self_modulate = Color(1, 1, 1, 1)
+z_index = -1
 
 [node name="score_gate" parent="Laser" index="1"]
 position = Vector2(20, 0)
 
 [node name="animationPlayer" parent="Laser" index="2"]
 reset_on_save = false
-root_node = NodePath("../sprite2d")
-autoplay = ""
+autoplay = "RESET"
 
 [node name="visibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(105, -1)
