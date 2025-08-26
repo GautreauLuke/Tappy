@@ -23,12 +23,12 @@ public partial class Pipes : Node2D
 		_laser.BodyEntered += OnLaserBodyEntered;
 	}
 
-    private void OnLaserBodyEntered(Node2D body)
-    {
-        GD.Print("Scored");
-    }
+	private void OnLaserBodyEntered(Node2D body)
+	{
+		GD.Print("Scored");
+	}
 
-    public void OnPipeBodyEntered(Node2D body)
+	public void OnPipeBodyEntered(Node2D body)
 	{
 		GD.Print(body.Name);
 		if (body is Plane)
