@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2gs2m273amjj"]
+[gd_scene load_steps=7 format=3 uid="uid://c2gs2m273amjj"]
 
 [ext_resource type="Script" uid="uid://uejpuup2kosx" path="res://Scenes/Game/Game.cs" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dug8qlfli2cm1" path="res://assets/background/rocks_2.png" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://coox8hpw670na" path="res://Scenes/Plane/plane.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://bgmb3fblpdxdg" path="res://Scenes/Barrier/barrier.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bp7jqydo1iuyf" path="res://Scenes/Pipes/pipes.tscn" id="4_fc0e3"]
+[ext_resource type="AudioStream" uid="uid://bxhe5hankspiw" path="res://assets/audio/Noah Hinson Trak 1.mp3" id="6_flgk0"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_pipesHolder", "_spawnTimer", "_plane")]
 script = ExtResource("1_7jktm")
@@ -43,3 +44,8 @@ position = Vector2(550, 600)
 [node name="Spawntimer" type="Timer" parent="."]
 wait_time = 1.811
 autostart = true
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_flgk0")
+volume_db = -8.0
+autoplay = true
