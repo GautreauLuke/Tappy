@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl00rul5gv0rj"]
+
+[ext_resource type="Texture2D" uid="uid://jman7t2awqck" path="res://assets/background/sky.png" id="1_1r6ip"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="textureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1r6ip")
+expand_mode = 5
+
+[node name="label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.5
+offset_right = 25.5
+offset_bottom = 49.0
+grow_horizontal = 2
+text = "TAPPY
+PLANE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -24.5
+offset_right = 84.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS SPACE 
+TO PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+offset_right = 168.0
+grow_vertical = 0
+text = "HIGH SCORE"
+vertical_alignment = 1
+
+[node name="label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -49.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0000"
+horizontal_alignment = 2
+vertical_alignment = 1
