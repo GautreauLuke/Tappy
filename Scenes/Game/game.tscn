@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2gs2m273amjj"]
+[gd_scene load_steps=9 format=3 uid="uid://c2gs2m273amjj"]
 
 [ext_resource type="Script" uid="uid://uejpuup2kosx" path="res://Scenes/Game/Game.cs" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dug8qlfli2cm1" path="res://assets/background/rocks_2.png" id="1_80nbo"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bgmb3fblpdxdg" path="res://Scenes/Barrier/barrier.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bp7jqydo1iuyf" path="res://Scenes/Pipes/pipes.tscn" id="4_fc0e3"]
 [ext_resource type="AudioStream" uid="uid://bxhe5hankspiw" path="res://assets/audio/Noah Hinson Trak 1.mp3" id="6_flgk0"]
+[ext_resource type="LabelSettings" uid="uid://8v7uo8yyfw07" path="res://Resources/LG__40_RED.tres" id="7_vifcx"]
+[ext_resource type="Texture2D" uid="uid://jman7t2awqck" path="res://assets/background/sky.png" id="8_xfil1"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_pipesHolder", "_spawnTimer", "_plane")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_pipesHolder", "_spawnTimer", "_plane", "_music", "_gameOverLabel")]
 script = ExtResource("1_7jktm")
 _spawnUpper = NodePath("spawn_upper")
 _spawnLower = NodePath("spawn_lower")
@@ -15,6 +17,8 @@ _pipesHolder = NodePath("PipesHolder")
 _spawnTimer = NodePath("Spawntimer")
 _pipesScene = ExtResource("4_fc0e3")
 _plane = NodePath("Plane")
+_music = NodePath("GameMusic")
+_gameOverLabel = NodePath("label2")
 
 [node name="sprite2d" type="Sprite2D" parent="."]
 
@@ -49,3 +53,33 @@ autostart = true
 stream = ExtResource("6_flgk0")
 volume_db = -8.0
 autoplay = true
+
+[node name="label2" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 260.0
+offset_right = 473.0
+offset_bottom = 565.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "PRESS SPACE 
+TO RETRY
+
+
+PRESS R
+TO RETURN
+TO MENU"
+label_settings = ExtResource("7_vifcx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sky" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(322, 342)
+texture = ExtResource("8_xfil1")
