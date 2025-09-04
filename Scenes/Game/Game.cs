@@ -22,11 +22,17 @@ public partial class Game : Node2D
 	public override void _Ready()
 	{
 		_spawnTimer.Timeout += SpawnPipes;
-		_plane.OnPlaneDied += GameOver;
+		SignalManager.Instance.OnPlaneDied += GameOver;
 
 		SpawnPipes();
 		GD.Print($"{GetSpawnY()}");
 	}
+
+	public override void _ExitTree()
+	{
+		SignalManager.Instance.OnPlaneDied -= GameOver;
+	}
+
 
 	public void StopPipes()
 	{
@@ -58,7 +64,8 @@ public partial class Game : Node2D
 	{
 		if (Input.IsActionJustPressed("fly") && IsGameOver == true)
 		{
-			GetTree().ChangeSceneToPacked(GAME_SCENE);
+			// GetTree().ChangeSceneToPacked(GAME_SCENE);
+			GameManager.LoadGame();
 		}
 
 		// if (Input.IsKeyPressed(Key.Q))
@@ -66,9 +73,10 @@ public partial class Game : Node2D
 		// 	GetTree().ChangeSceneToPacked(MAIN_SCENE);
 		// }
 
-		if (Input.IsKeyPressed(Key.R)  && IsGameOver == true)
+		if (Input.IsKeyPressed(Key.R) && IsGameOver == true)
 		{
-			GetTree().ChangeSceneToPacked(MAIN_SCENE);
+			// GetTree().ChangeSceneToPacked(MAIN_SCENE);
+			GameManager.LoadMain();
 		}
 	}
 
