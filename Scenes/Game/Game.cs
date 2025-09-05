@@ -9,7 +9,7 @@ public partial class Game : Node2D
 
 	[Export] private Marker2D _spawnUpper;
 	[Export] private Marker2D _spawnLower;
-	[Export] private Node2D _pipesHolder;
+	// [Export] private Node2D _pipesHolder;
 	[Export] private Timer _spawnTimer;
 	[Export] private PackedScene _pipesScene;
 	[Export] private Plane _plane;
@@ -37,10 +37,10 @@ public partial class Game : Node2D
 	public void StopPipes()
 	{
 		_spawnTimer.Stop();
-		foreach (Pipes pipe in _pipesHolder.GetChildren())
-		{
-			pipe.SetProcess(false);
-		}
+		// foreach (Pipes pipe in _pipesHolder.GetChildren())
+		// {
+		// 	pipe.SetProcess(false);
+		// }
 	}
 
 	public void GameOver()
@@ -55,7 +55,8 @@ public partial class Game : Node2D
 	private void SpawnPipes()
 	{
 		Pipes np = _pipesScene.Instantiate<Pipes>();
-		_pipesHolder.AddChild(np);
+		// _pipesHolder.AddChild(np);
+		AddChild(np);
 		np.GlobalPosition = new Vector2(_spawnLower.Position.X, GetSpawnY());
 	}
 

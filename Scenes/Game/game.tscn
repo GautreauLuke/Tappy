@@ -9,11 +9,10 @@
 [ext_resource type="LabelSettings" uid="uid://8v7uo8yyfw07" path="res://Resources/LG__40_RED.tres" id="7_vifcx"]
 [ext_resource type="Texture2D" uid="uid://jman7t2awqck" path="res://assets/background/sky.png" id="8_xfil1"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_pipesHolder", "_spawnTimer", "_plane", "_music", "_gameOverLabel")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer", "_plane", "_music", "_gameOverLabel")]
 script = ExtResource("1_7jktm")
 _spawnUpper = NodePath("spawn_upper")
 _spawnLower = NodePath("spawn_lower")
-_pipesHolder = NodePath("PipesHolder")
 _spawnTimer = NodePath("Spawntimer")
 _pipesScene = ExtResource("4_fc0e3")
 _plane = NodePath("Plane")

@@ -15,14 +15,14 @@ public partial class Plane : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GD.Print($"Plane READY at: {GetPath()}");
+		// GD.Print($"Plane READY at: {GetPath()}");
 
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
-		if (Input.IsActionJustPressed("ui_accept")) GD.Print("ACCEPT");
+		// if (Input.IsActionJustPressed("ui_accept")) GD.Print("ACCEPT");
 
 
 		Vector2 velocity = Velocity;
@@ -33,7 +33,7 @@ public partial class Plane : CharacterBody2D
 			velocity.Y = POWER;
 			_animationPlayer.Stop();
 			_animationPlayer.Play("power");
-			GD.Print("Power.");
+			// GD.Print("Power.");
 
 		}
 
@@ -55,7 +55,8 @@ public partial class Plane : CharacterBody2D
 		_planeSprite.Stop();
 		GD.Print("Ded.");
 		// EmitSignal(SignalName.OnPlaneDied);
-		SignalManager.EmitOnPlaneDied();	
+		SignalManager.EmitOnPlaneDied();
+		ScoreManager.ResetScore();
 
 		}
 }

@@ -21,16 +21,30 @@ public partial class Pipes : Node2D
 		_topPipe.BodyEntered += OnPipeBodyEntered;
 		_bottomPipe.BodyEntered += OnPipeBodyEntered;
 		_laser.BodyEntered += OnLaserBodyEntered;
+
+		SignalManager.Instance.OnPlaneDied += OnPlaneDied;
+	}
+
+	public override void _ExitTree()
+	{
+		SignalManager.Instance.OnPlaneDied -= OnPlaneDied;
+	}
+
+
+	private void OnPlaneDied()
+	{
+		SetProcess(false);
 	}
 
 	private void OnLaserBodyEntered(Node2D body)
 	{
-		GD.Print("Scored");
+		// GD.Print("Scored");
+		ScoreManager.IncrimentScore(); 
 	}
 
 	public void OnPipeBodyEntered(Node2D body)
 	{
-		GD.Print(body.Name);
+		// GD.Print(body.Name);
 		if (body is Plane)
 		{
 			(body as Plane).Die();
