@@ -24,8 +24,10 @@ public partial class Game : Node2D
 		_spawnTimer.Timeout += SpawnPipes;
 		SignalManager.Instance.OnPlaneDied += GameOver;
 
+		ScoreManager.ResetScore(); 
+
 		SpawnPipes();
-		GD.Print($"{GetSpawnY()}");
+		// GD.Print($"{GetSpawnY()}");
 	}
 
 	public override void _ExitTree()
