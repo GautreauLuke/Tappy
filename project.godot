@@ -25,6 +25,7 @@ ScoreManager="*res://Globals/ScoreManager.cs"
 
 window/size/viewport_width=480
 window/size/viewport_height=854
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [dotnet]

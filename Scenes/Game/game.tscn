@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bxhe5hankspiw" path="res://assets/audio/Noah Hinson Trak 1.mp3" id="6_flgk0"]
 [ext_resource type="LabelSettings" uid="uid://8v7uo8yyfw07" path="res://Resources/LG__40_RED.tres" id="7_vifcx"]
 [ext_resource type="Texture2D" uid="uid://jman7t2awqck" path="res://assets/background/sky.png" id="8_xfil1"]
-[ext_resource type="PackedScene" uid="uid://cyo5howt1lc8i" path="res://Scenes/HUD.tscn" id="9_huoen"]
+[ext_resource type="PackedScene" uid="uid://d0rnny8fttixx" path="res://Scenes/HUD/HUD.tscn" id="9_huoen"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer", "_plane", "_music", "_gameOverLabel")]
 script = ExtResource("1_7jktm")

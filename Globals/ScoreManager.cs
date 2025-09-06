@@ -29,6 +29,7 @@ public partial class ScoreManager : Node
             Instance._highScore = Instance._score;
         }
         GD.Print($"Score: {Instance._score}. High Score: {Instance._highScore}");
+        SignalManager.EmitOnScored();
     }
 
     public static void ResetScore()
