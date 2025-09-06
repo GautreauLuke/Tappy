@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2gs2m273amjj"]
+[gd_scene load_steps=10 format=3 uid="uid://c2gs2m273amjj"]
 
 [ext_resource type="Script" uid="uid://uejpuup2kosx" path="res://Scenes/Game/Game.cs" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dug8qlfli2cm1" path="res://assets/background/rocks_2.png" id="1_80nbo"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bxhe5hankspiw" path="res://assets/audio/Noah Hinson Trak 1.mp3" id="6_flgk0"]
 [ext_resource type="LabelSettings" uid="uid://8v7uo8yyfw07" path="res://Resources/LG__40_RED.tres" id="7_vifcx"]
 [ext_resource type="Texture2D" uid="uid://jman7t2awqck" path="res://assets/background/sky.png" id="8_xfil1"]
+[ext_resource type="PackedScene" uid="uid://cyo5howt1lc8i" path="res://Scenes/HUD.tscn" id="9_huoen"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer", "_plane", "_music", "_gameOverLabel")]
 script = ExtResource("1_7jktm")
@@ -83,3 +84,7 @@ vertical_alignment = 1
 z_index = -10
 position = Vector2(322, 342)
 texture = ExtResource("8_xfil1")
+
+[node name="canvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="canvasLayer" instance=ExtResource("9_huoen")]
