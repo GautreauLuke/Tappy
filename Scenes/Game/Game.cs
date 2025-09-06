@@ -10,7 +10,7 @@ public partial class Game : Node2D
 	[Export] private Marker2D _spawnUpper;
 	[Export] private Marker2D _spawnLower;
 	// [Export] private Node2D _pipesHolder;
-	[Export] private Timer _spawnTimer;
+	[Export] private Timer _spawnTimer; 
 	[Export] private PackedScene _pipesScene;
 	[Export] private Plane _plane;
 	[Export] private AudioStreamPlayer2D _music;
