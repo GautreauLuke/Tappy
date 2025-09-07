@@ -15,6 +15,7 @@ public partial class Game : Node2D
 	[Export] private Plane _plane;
 	[Export] private AudioStreamPlayer2D _music;
 	[Export] private Label _gameOverLabel;
+	[Export] private AudioStreamPlayer2D _gameOverSound;
 
 	bool IsGameOver = false;
 
@@ -52,6 +53,7 @@ public partial class Game : Node2D
 		IsGameOver = true;
 		_music.Stop();
 		_gameOverLabel.Visible = true;
+		_gameOverSound.Play();
 	}
 
 	private void SpawnPipes()

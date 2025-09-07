@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2gs2m273amjj"]
+[gd_scene load_steps=11 format=3 uid="uid://c2gs2m273amjj"]
 
 [ext_resource type="Script" uid="uid://uejpuup2kosx" path="res://Scenes/Game/Game.cs" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dug8qlfli2cm1" path="res://assets/background/rocks_2.png" id="1_80nbo"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bp7jqydo1iuyf" path="res://Scenes/Pipes/pipes.tscn" id="4_fc0e3"]
 [ext_resource type="AudioStream" uid="uid://bxhe5hankspiw" path="res://assets/audio/Noah Hinson Trak 1.mp3" id="6_flgk0"]
 [ext_resource type="LabelSettings" uid="uid://8v7uo8yyfw07" path="res://Resources/LG__40_RED.tres" id="7_vifcx"]
+[ext_resource type="AudioStream" uid="uid://h57s8wpdr6bp" path="res://assets/audio/game_over.wav" id="8_7jvlm"]
 [ext_resource type="Texture2D" uid="uid://jman7t2awqck" path="res://assets/background/sky.png" id="8_xfil1"]
 [ext_resource type="PackedScene" uid="uid://d0rnny8fttixx" path="res://Scenes/HUD/HUD.tscn" id="9_huoen"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer", "_plane", "_music", "_gameOverLabel")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer", "_plane", "_music", "_gameOverLabel", "_gameOverSound")]
 script = ExtResource("1_7jktm")
 _spawnUpper = NodePath("spawn_upper")
 _spawnLower = NodePath("spawn_lower")
@@ -19,6 +20,7 @@ _pipesScene = ExtResource("4_fc0e3")
 _plane = NodePath("Plane")
 _music = NodePath("GameMusic")
 _gameOverLabel = NodePath("label2")
+_gameOverSound = NodePath("label2/audioStreamPlayer2d")
 
 [node name="sprite2d" type="Sprite2D" parent="."]
 
@@ -79,6 +81,10 @@ TO MENU"
 label_settings = ExtResource("7_vifcx")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="audioStreamPlayer2d" type="AudioStreamPlayer2D" parent="label2"]
+stream = ExtResource("8_7jvlm")
+volume_db = -6.0
 
 [node name="sky" type="Sprite2D" parent="."]
 z_index = -10
