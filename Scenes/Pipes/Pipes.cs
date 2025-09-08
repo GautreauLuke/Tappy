@@ -4,14 +4,13 @@ using System;
 public partial class Pipes : Node2D
 {
 
-	const float SCROLL_SPEED = 120.0f;
 
 	[Export] private VisibleOnScreenNotifier2D _visibleOnScreenNotifier;
 	[Export] private Area2D _topPipe;
 	[Export] private Area2D _bottomPipe;
 	[Export] private Area2D _laser;
 	[Export] private AnimationPlayer _laserAnimation;
-
+	[Export]
 
 
 	// Called when the node enters the scene tree for the first time.
@@ -56,7 +55,7 @@ public partial class Pipes : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Position -= new Vector2(SCROLL_SPEED * (float)delta, 0.0f);
+		Position -= new Vector2(GameManager.SCROLL_SPEED * (float)delta, 0.0f);
 	}
 	
 	private void OnScreenExited()

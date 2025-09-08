@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2gs2m273amjj"]
+[gd_scene load_steps=12 format=3 uid="uid://c2gs2m273amjj"]
 
 [ext_resource type="Script" uid="uid://uejpuup2kosx" path="res://Scenes/Game/Game.cs" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dug8qlfli2cm1" path="res://assets/background/rocks_2.png" id="1_80nbo"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://h57s8wpdr6bp" path="res://assets/audio/game_over.wav" id="8_7jvlm"]
 [ext_resource type="Texture2D" uid="uid://jman7t2awqck" path="res://assets/background/sky.png" id="8_xfil1"]
 [ext_resource type="PackedScene" uid="uid://d0rnny8fttixx" path="res://Scenes/HUD/HUD.tscn" id="9_huoen"]
+[ext_resource type="PackedScene" uid="uid://dj5p7j6mygfsu" path="res://Scenes/ParallaxBg/parallax_bg.tscn" id="11_qtymf"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer", "_plane", "_music", "_gameOverLabel", "_gameOverSound")]
 script = ExtResource("1_7jktm")
@@ -23,8 +24,10 @@ _gameOverLabel = NodePath("label2")
 _gameOverSound = NodePath("label2/audioStreamPlayer2d")
 
 [node name="sprite2d" type="Sprite2D" parent="."]
+visible = false
 
 [node name="rocks2" type="Sprite2D" parent="."]
+visible = false
 z_index = -2
 position = Vector2(340, 341)
 texture = ExtResource("1_80nbo")
@@ -85,8 +88,10 @@ vertical_alignment = 1
 [node name="audioStreamPlayer2d" type="AudioStreamPlayer2D" parent="label2"]
 stream = ExtResource("8_7jvlm")
 volume_db = -6.0
+pitch_scale = 0.7
 
 [node name="sky" type="Sprite2D" parent="."]
+visible = false
 z_index = -10
 position = Vector2(322, 342)
 texture = ExtResource("8_xfil1")
@@ -94,3 +99,6 @@ texture = ExtResource("8_xfil1")
 [node name="canvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="canvasLayer" instance=ExtResource("9_huoen")]
+
+[node name="ParallaxBg" parent="." instance=ExtResource("11_qtymf")]
+z_index = -4

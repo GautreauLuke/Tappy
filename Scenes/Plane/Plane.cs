@@ -10,6 +10,7 @@ public partial class Plane : CharacterBody2D
 
 	[Export] private AnimationPlayer _animationPlayer;
 	[Export] private AnimatedSprite2D _planeSprite;
+	[Export] private AudioStreamPlayer2D _engine;
 
 
 	// Called when the node enters the scene tree for the first time.
@@ -57,6 +58,7 @@ public partial class Plane : CharacterBody2D
 		// EmitSignal(SignalName.OnPlaneDied);
 		SignalManager.EmitOnPlaneDied();
 		ScoreManager.ResetScore();
+		_engine.Stop();
 
 		}
 }
