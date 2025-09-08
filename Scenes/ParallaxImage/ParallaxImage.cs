@@ -18,6 +18,19 @@ public partial class ParallaxImage : Parallax2D
 		_sprite.Scale = new Vector2(scaleFactor, scaleFactor);
 
 		RepeatSize = new Vector2(_srcTexture.GetWidth() * scaleFactor, 0);
+		SignalManager.Instance.OnPlaneDied += OnPlaneDied;
+	}
+
+	public override void _ExitTree()
+	{
+		SignalManager.Instance.OnPlaneDied -= OnPlaneDied;
+	}
+
+	private void OnPlaneDied()
+	{
+		Vector2 pp = Position;
+		Autoscroll = Vector2.Zero;
+		Position = pp;
 	}
 
 

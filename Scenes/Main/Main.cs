@@ -20,7 +20,9 @@ public partial class Main : Control
 	{
 		if (Input.IsActionJustPressed("fly"))
 		{
-			GetTree().ChangeSceneToPacked(GAME_SCENE);
+			// GetTree().ChangeSceneToPacked(GAME_SCENE);
+			GameManager.LoadGame();
+
 		}
 	}
 }

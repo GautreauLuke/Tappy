@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqkkfu8xu3s0p"]
+
+[ext_resource type="Texture2D" uid="uid://jman7t2awqck" path="res://assets/background/sky.png" id="1_31gq8"]
+[ext_resource type="Script" uid="uid://cmfdqw2xy2up4" path="res://Scenes/SimpleTransitions/SimpleTransition.cs" id="1_k4q2l"]
+[ext_resource type="LabelSettings" uid="uid://b4qwt6ts7hdoy" path="res://Resources/LG__72_RED.tres" id="2_k4q2l"]
+
+[node name="SimpleTransition" type="Control" node_paths=PackedStringArray("_timer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k4q2l")
+_timer = NodePath("timer")
+
+[node name="textureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_31gq8")
+expand_mode = 5
+
+[node name="label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -11.5
+offset_right = 37.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+label_settings = ExtResource("2_k4q2l")
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

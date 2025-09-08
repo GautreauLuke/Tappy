@@ -10,7 +10,7 @@ public partial class Pipes : Node2D
 	[Export] private Area2D _bottomPipe;
 	[Export] private Area2D _laser;
 	[Export] private AnimationPlayer _laserAnimation;
-	[Export]
+	[Export] private AudioStreamPlayer2D _scoreSound;
 
 
 	// Called when the node enters the scene tree for the first time.
@@ -38,7 +38,8 @@ public partial class Pipes : Node2D
 	private void OnLaserBodyEntered(Node2D body)
 	{
 		// GD.Print("Scored");
-		ScoreManager.IncrimentScore(); 
+		ScoreManager.IncrimentScore();
+		_scoreSound.Play();
 	}
 
 	public void OnPipeBodyEntered(Node2D body)
